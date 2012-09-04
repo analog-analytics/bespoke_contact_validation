@@ -6,8 +6,12 @@ module Bespoke
 
     module Validation
       def self.included(base)
-        base.class_eval do
-          validates_inclusion_of :title, :in => TITLES
+        base.send(:extend, ClassMethods)
+      end
+
+      module ClassMethods
+        def validate_as_bespoke_contact_title(attribute)
+          validates_inclusion_of attribute, :in => TITLES
         end
       end
     end

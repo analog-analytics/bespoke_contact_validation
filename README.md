@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'bespoke-contact-validation'
+    gem 'bespoke_contact_validation'
 
 And then execute:
 
@@ -14,11 +14,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bespoke-contact-validation
+    $ gem install bespoke_contact_validation
 
 ## Usage
 
-TODO: Write usage instructions here
+    class MyContactModel < ActiveRecord::Base
+      include Bespoke::Contact::Validation
+
+      validate_as_bespoke_contact_title :title # validates inclusion in e.g. %w(Mr Mrs Miss...)
+    end
 
 ## Contributing
 
