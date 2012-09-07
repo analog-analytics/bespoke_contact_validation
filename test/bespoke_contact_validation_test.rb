@@ -8,8 +8,8 @@ module Bespoke
       def test_validate_as_bespoke_contact_title
         model_class = Class.new
         model_class.send(:include, Validation)
-        model_class.expects(:validates_inclusion_of).with(:contact_title, has_entry(:in, Bespoke::Contact::TITLES))
-        model_class.send(:validate_as_bespoke_contact_title, :contact_title)
+        model_class.expects(:validates_inclusion_of).with(:contact_title, has_entries({in: Bespoke::Contact::TITLES, if: :some_method}))
+        model_class.send(:validate_as_bespoke_contact_title, :contact_title, { if: :some_method })
       end
     end
   end
