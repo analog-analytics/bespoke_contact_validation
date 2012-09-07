@@ -10,8 +10,9 @@ module Bespoke
       end
 
       module ClassMethods
-        def validate_as_bespoke_contact_title(attribute)
-          validates_inclusion_of attribute, :in => TITLES
+        def validate_as_bespoke_contact_title(attribute, options={})
+          options[:in] = TITLES
+          validates_inclusion_of attribute, options
         end
       end
     end
