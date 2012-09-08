@@ -12,7 +12,11 @@ module Bespoke
       module ClassMethods
         def validate_as_bespoke_contact_title(attribute, options={})
           options[:in] = TITLES
-          validates_inclusion_of attribute, options
+          if respond_to?(:validates)
+            validates attribute, :inclusion => options
+          else
+            validates_inclusion_of attribute, options
+          end
         end
       end
     end
