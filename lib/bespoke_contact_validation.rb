@@ -2,7 +2,7 @@ require "bespoke_contact_validation/version"
 
 module Bespoke
   module Contact
-    TITLES = %w(Mr Mrs Miss Ms Dr Sir Lord Lady Dame)
+    TITLES = %w(Mr Mrs Miss Ms Dr)
 
     module Validation
       def self.included(base)
